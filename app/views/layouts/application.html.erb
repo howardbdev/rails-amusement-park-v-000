@@ -29,12 +29,19 @@
            <!--  nav here -->
           </ul>
         </div><!--/.nav-collapse -->
+
       </div>
     </div>
 
     <!-- content -->
     <div class="container"  role="main">
+      
+      <div class="messages" style="color:red;">
+        <%= render 'layouts/messages' %>
+      </div>
+
       <%= yield %>
+
     </div>
   </body>
 </html>
