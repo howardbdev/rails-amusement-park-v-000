@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(name: params[:user][:name])
-    if @user && @user.authenticate(params[:password])
-      login @user
-      redirect_to @user
+    if (@user && @user.authenticate(params[:user][:password]))
+      log_in @user
+      redirect_to user_path(@user)
     else
       flash[:error] = "Invalid credentials.  Please try again or sign up."
       redirect_to '/signin'

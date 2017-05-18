@@ -1,7 +1,7 @@
 sessions/new <br>
 <h1>Please Sign In:</h1>
 
-<%= form_for @user, url: '/sessions' do |f| %>
+<%= form_for @user, url: url_for(controller: 'sessions', action: 'create') do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :password %>

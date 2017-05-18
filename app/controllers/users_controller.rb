@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :get_user, only: [:show, :destroy, :edit]
+  before_action :authorize_user, only: [:show]
 
   def new
     @user = User.new
@@ -29,5 +30,9 @@ class UsersController < ApplicationController
 
   def get_user
     @user = User.find_by(id: params[:id])
+  end
+
+  def authorize_user
+    redirect_to root_path if !logged_in?
   end
 end
