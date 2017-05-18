@@ -1,11 +1,10 @@
 sessions/new <br>
+<h1>Please Sign In:</h1>
 
-<h1>Please Log In:</h1>
-
-<%= form_tag do %>
-  <%= label_tag 'Name: ' %>
-  <%= text_field_tag :name %>
-  <%= label_tag 'Password: ' %>
-  <%= text_field_tag :password %>
-  <%= submit_tag 'Log In' %>
+<%= form_for @user, url: '/sessions' do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <%= f.submit 'Sign In' %>
 <% end %>

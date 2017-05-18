@@ -1,0 +1,10 @@
+users/show <br>
+
+<h2> <%= @user.name %> </h2>
+<ul>
+  <li>Tickets: <%= @user.tickets %></li>
+  <li>Nausea level:<%= @user.nausea %></li>
+  <li>Mood: <%= @user.mood %></li>
+  <li>Height in inches: <%= @user.height %></li>
+  <li>Admin?: <%= @user.admin ? "Yes" : "No" %></li>
+</ul>
