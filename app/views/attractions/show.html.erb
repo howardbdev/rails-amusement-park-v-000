@@ -1,0 +1,16 @@
+attractions/show <br>
+
+<ul>
+  <h3><%= @attraction.name %></h3>
+    <li>Ticket Requirement: <%= @attraction.tickets %></li>
+    <li>Height Requirement: <%= @attraction.min_height %></li>
+    <li>Nausea Rating: <%= @attraction.nausea_rating %></li>
+    <li>Happiness Rating: <%= @attraction.happiness_rating %></li>
+</ul>
+
+<form class="" action="/rides" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="hidden" name="user_id" value="<%= @user.id %>">
+  <input type="hidden" name="attraction_id" value="<%= @attraction.id %>">
+  <input type="submit" name="" value="Go on this ride">
+</form>

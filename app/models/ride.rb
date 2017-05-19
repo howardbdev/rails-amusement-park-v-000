@@ -8,12 +8,14 @@ class Ride < ActiveRecord::Base
     attraction = self.attraction
 
     if too_short?(user, attraction) || too_broke?(user, attraction)
-      return "Sorry. You do not have enough tickets to ride the #{attraction.name}." if !too_short?(user, attraction)
-      return "Sorry. You are not tall enough to ride the #{attraction.name}." if !too_broke?(user, attraction)
-      return "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
+       "Sorry. You do not have enough tickets to ride the #{attraction.name}." if !too_short?(user, attraction)
+       "Sorry. You are not tall enough to ride the #{attraction.name}." if !too_broke?(user, attraction)
+       "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
+    else
+      update_user(user, attraction)
+      "Thanks for riding the #{attraction.name}!"
     end
 
-    update_user(user, attraction)
   end
 
   private

@@ -4,8 +4,9 @@ users/show <br>
 <h3><%= 'ADMIN' if @user.admin %></h3>
 <ul>
   <li>Tickets: <%= @user.tickets %></li>
-  <li>Nausea level:<%= @user.nausea %></li>
   <li>Mood: <%= @user.mood %></li>
   <li>Height in inches: <%= @user.height %></li>
   <li>Admin?: <%= @user.admin ? "Yes" : "No" %></li>
 </ul>
+
+<%= link_to 'See attractions', attractions_path %>
