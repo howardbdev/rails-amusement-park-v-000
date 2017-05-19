@@ -1,14 +1,11 @@
 class AttractionsController < ApplicationController
 
+  before_action :ensure_logged_in
   before_action :get_attraction, only: [:show, :edit, :update]
+  before_action :get_current_user, only: [:index, :show]
 
   def index
     @attractions = Attraction.all
-    @user = current_user
-  end
-
-  def show
-    @user = current_user
   end
 
   def new
@@ -47,4 +44,11 @@ class AttractionsController < ApplicationController
     params.require(:attraction).permit(:name, :tickets, :min_height, :nausea_rating, :happiness_rating)
   end
 
+  def get_current_user
+    @user = current_user
+  end
+
+  def ensure_logged_in
+    redirect_to root_path if !logged_in?
+  end
 end
