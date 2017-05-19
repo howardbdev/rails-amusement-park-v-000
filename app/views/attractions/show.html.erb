@@ -8,9 +8,13 @@ attractions/show <br>
     <li>Happiness Rating: <%= @attraction.happiness_rating %></li>
 </ul>
 
-<form class="" action="/rides" method="post">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <input type="hidden" name="user_id" value="<%= @user.id %>">
-  <input type="hidden" name="attraction_id" value="<%= @attraction.id %>">
-  <input type="submit" name="" value="Go on this ride">
-</form>
+<% if @user.admin %>
+  <%= link_to "Edit Attraction", edit_attraction_path %>
+<% else %>
+  <form class="" action="/rides" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <input type="hidden" name="user_id" value="<%= @user.id %>">
+    <input type="hidden" name="attraction_id" value="<%= @attraction.id %>">
+    <input type="submit" name="" value="Go on this ride">
+  </form>
+<% end %>
