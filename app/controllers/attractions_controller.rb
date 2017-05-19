@@ -4,7 +4,7 @@ class AttractionsController < ApplicationController
 
   def index
     @attractions = Attraction.all
-    @user = current_user if current_user.admin
+    @user = current_user
   end
 
   def show
@@ -35,7 +35,7 @@ class AttractionsController < ApplicationController
       flash[:error] = "Something went wrong.  You suck.  Wah- Waaahhhhh."
       redirect_to attractions_path
     end
-  end 
+  end
 
   private
 
